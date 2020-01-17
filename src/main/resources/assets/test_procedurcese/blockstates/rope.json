@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "normal": {
+      "model": "test_procedurcese:rope"
+    },
+    "facing=north": {
+      "model": "test_procedurcese:rope"
+    },
+    "facing=east": {
+      "model": "test_procedurcese:rope",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "test_procedurcese:rope",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "test_procedurcese:rope",
+      "y": 270
+    }
+  }
+}

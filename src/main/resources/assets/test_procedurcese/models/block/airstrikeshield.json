@@ -1,0 +1,8 @@
+{
+  "parent": "test_procedurcese:custom/air_shieldjson",
+  "textures": {
+    "all": "test_procedurcese:blocks/air_stike_shield",
+    "particle": "test_procedurcese:blocks/air_stike_shield",
+    "0": "test_procedurcese:blocks/air_stike_shield"
+  }
+}

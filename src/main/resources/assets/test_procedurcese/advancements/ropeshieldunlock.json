@@ -1,0 +1,26 @@
+{
+  "display": {
+    "background": "minecraft:textures/blocks/stone.png",
+    "icon": {
+      "item": "test_procedurcese:ropeshielditem"
+    },
+    "title": {
+      "translate": "advancements.ropeshieldunlock.title"
+    },
+    "description": {
+      "translate": "advancements.ropeshieldunlock.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ropeshieldunlock": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0
+  }
+}

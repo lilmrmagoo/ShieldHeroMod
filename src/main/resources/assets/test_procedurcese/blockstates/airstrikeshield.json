@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "normal": {
+      "model": "test_procedurcese:airstrikeshield"
+    },
+    "facing=north": {
+      "model": "test_procedurcese:airstrikeshield"
+    },
+    "facing=east": {
+      "model": "test_procedurcese:airstrikeshield",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "test_procedurcese:airstrikeshield",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "test_procedurcese:airstrikeshield",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "test_procedurcese:airstrikeshield",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "test_procedurcese:airstrikeshield",
+      "x": 90
+    }
+  }
+}

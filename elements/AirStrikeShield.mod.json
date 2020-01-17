@@ -1,0 +1,84 @@
+{
+  "_fv": 5,
+  "_type": "block",
+  "definition": {
+    "texture": "air_stike_shield",
+    "textureTop": "",
+    "textureLeft": "",
+    "textureFront": "",
+    "textureRight": "",
+    "textureBack": "",
+    "renderType": 2,
+    "customModelName": "air_shieldjson:default",
+    "rotationMode": 4,
+    "hasTransparency": true,
+    "transparencyType": "TRANSLUCENT",
+    "mx": 0.0,
+    "my": 0.0,
+    "mz": 0.0,
+    "Mx": 1.2,
+    "My": 2.0,
+    "Mz": 0.25,
+    "faceShape": "SOLID",
+    "name": "Air Strike Shield",
+    "specialInfo": [],
+    "hardness": 3.0,
+    "resistance": 10.0,
+    "hasGravity": false,
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "destroyTool": "Not specified",
+    "affectedBySilkTouch": true,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 0,
+    "isBeaconBase": false,
+    "enchantPowerBonus": 0.0,
+    "plantsGrowOn": false,
+    "canProvidePower": false,
+    "lightOpacity": 0,
+    "material": {
+      "value": "IRON"
+    },
+    "tickRate": 10,
+    "isReplaceable": false,
+    "isFlammable": false,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "isNotColidable": false,
+    "soundOnStep": {
+      "value": "METAL"
+    },
+    "luminance": 0.0,
+    "unbreakable": false,
+    "breakHarvestLevel": 1,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "EXPLOSION_NORMAL"
+    },
+    "particleSpawningShape": "Spread",
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
+    "particleSpawningCondition": "ALWAYS",
+    "hasInventory": false,
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "inventoryDropWhenDestroyed": true,
+    "inventoryComparatorPower": true,
+    "inventoryOutSlotIDs": [],
+    "onEntityWalksOn": {
+      "name": "AirStrikeShieldEntityWalksOn"
+    },
+    "spawnWorldTypes": [],
+    "restrictionBiomes": [],
+    "blocksToReplace": [],
+    "frequencyPerChunks": 10,
+    "frequencyOnChunk": 16,
+    "minGenerateHeight": 0,
+    "maxGenerateHeight": 64
+  }
+}

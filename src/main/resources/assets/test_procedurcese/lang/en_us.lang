@@ -1,0 +1,13 @@
+tile.rope.name=Rope
+advancements.ropeshieldunlock.title=Rope Shield Unlock
+advancements.leafshield.descr=test
+key.mcreator.activateshieldpower=Activate Shield Power
+key.mcreator.shieldpowerup=Shield Power Select UP
+advancements.ropeshieldunlock.descr=Unlocks Air Stike Shield
+item.basicshielditem.name=Basic Shield
+tile.airstrikeshield.name=Air Strike Shield
+advancements.leafshield.title=Leafshield
+item.ropeshielditem.name=Rope Shield
+tile.ropefake.name=Rope
+advancements.secondshield.title=Air Strike Shield Second Shield
+advancements.secondshield.descr=Use Air Stike Shield 30 times this will unlock the ability to have two shields

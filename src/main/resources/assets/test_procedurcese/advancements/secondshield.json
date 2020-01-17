@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "test_procedurcese:airstrikeshield"
+    },
+    "title": {
+      "translate": "advancements.secondshield.title"
+    },
+    "description": {
+      "translate": "advancements.secondshield.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "secondshield": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0
+  },
+  "parent": "test_procedurcese:ropeshieldunlock"
+}

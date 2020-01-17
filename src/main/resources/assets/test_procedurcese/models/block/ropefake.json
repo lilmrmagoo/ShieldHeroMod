@@ -1,0 +1,8 @@
+{
+  "parent": "test_procedurcese:custom/ropeblock",
+  "textures": {
+    "all": "test_procedurcese:blocks/rope",
+    "particle": "test_procedurcese:blocks/rope",
+    "0": "test_procedurcese:blocks/rope"
+  }
+}

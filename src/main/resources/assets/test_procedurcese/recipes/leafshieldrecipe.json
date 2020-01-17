@@ -1,0 +1,18 @@
+{
+  "group": "test_procedurcese",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "test_procedurcese:basicshielditem"
+    },
+    {
+      "item": "minecraft:leaves",
+      "data": 32767
+    }
+  ],
+  "result": {
+    "item": "minecraft:leaves",
+    "data": 0,
+    "count": 1
+  }
+}
