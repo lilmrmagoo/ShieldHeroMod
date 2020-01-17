@@ -4,6 +4,7 @@ advancements.leafshield.descr=test
 key.mcreator.activateshieldpower=Activate Shield Power
 key.mcreator.shieldpowerup=Shield Power Select UP
 advancements.ropeshieldunlock.descr=Unlocks Air Stike Shield
+key.mcreator.deactivateshieldpower=Deactivate Shield Power
 item.basicshielditem.name=Basic Shield
 tile.airstrikeshield.name=Air Strike Shield
 advancements.leafshield.title=Leafshield

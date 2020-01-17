@@ -23,6 +23,9 @@ public class MCreatorPlayertick extends Elementstest_procedurcese.ModElement {
 		if (((entity.getEntityData().getDouble("AirStrikeShieldCool")) > 0)) {
 			entity.getEntityData().setDouble("AirStrikeShieldCool", ((entity.getEntityData().getDouble("AirStrikeShieldCool")) - 1));
 		}
+		if (((entity.getEntityData().getDouble("AirStrikeShield2Cool")) > 0)) {
+			entity.getEntityData().setDouble("AirStrikeShield2Cool", ((entity.getEntityData().getDouble("AirStrikeShield2Cool")) - 1));
+		}
 	}
 
 	@SubscribeEvent

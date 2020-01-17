@@ -1,10 +1,13 @@
 package net.mcreator.test_procedurcese;
 
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.item.ItemStack;
 import net.minecraft.init.Blocks;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.state.IBlockState;
@@ -426,30 +429,220 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 			}
 			entity.getEntityData().setDouble("AirShieldEXP", ((entity.getEntityData().getDouble("AirShieldEXP")) + 1));
 			entity.getEntityData().setDouble("AirStrikeShieldCool", 1200);
-		} else if (((entity.getEntityData().getDouble("currentability")) == 1)) {
-			if (((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
-					entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 17, entity.getLook(1f).y * 17, entity.getLook(1f).z * 17), false,
-					false, true).getBlockPos().getX()), (int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
-					entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 17, entity.getLook(1f).y * 17, entity.getLook(1f).z * 17), false,
-					false, true).getBlockPos().getY()), (int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
-					entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 17, entity.getLook(1f).y * 17, entity.getLook(1f).z * 17), false,
-					false, true).getBlockPos().getZ())))).getBlock() == MCreatorAirStrikeShield.block.getDefaultState().getBlock())) {
-				world.setBlockState(
-						new BlockPos((int) (entity.world
+		}
+		if ((((entity instanceof EntityPlayerMP) && (entity.world instanceof WorldServer)) ? ((EntityPlayerMP) entity)
+				.getAdvancements()
+				.getProgress(
+						((WorldServer) entity.world).getAdvancementManager().getAdvancement(new ResourceLocation("test_procedurcese:secondshield")))
+				.isDone() : false)) {
+			if (((((entity.getEntityData().getDouble("currentability")) == 1) && ((entity.getEntityData().getDouble("AirShieldsNum")) < (entity
+					.getEntityData().getDouble("unlockedAirShields")))) && ((entity.getEntityData().getDouble("AirStrikeShield2Cool")) <= 0))) {
+				if (((entity.getHorizontalFacing()) == EnumFacing.SOUTH)) {
+					world.setBlockState(
+							new BlockPos((int) (entity.world.rayTraceBlocks(
+									entity.getPositionEyes(1f),
+									entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+											entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) ((entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ()) - 1)),
+							MCreatorAirStrikeShield.block.getDefaultState(), 3);
+					try {
+						IBlockState _bs = world.getBlockState(new BlockPos((int) (entity.world
 								.rayTraceBlocks(
 										entity.getPositionEyes(1f),
-										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 17, entity.getLook(1f).y * 17,
-												entity.getLook(1f).z * 17), false, false, true).getBlockPos().getX()), (int) (entity.world
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()), (int) (entity.world
 								.rayTraceBlocks(
 										entity.getPositionEyes(1f),
-										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 17, entity.getLook(1f).y * 17,
-												entity.getLook(1f).z * 17), false, false, true).getBlockPos().getY()), (int) (entity.world
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) ((entity.world
 								.rayTraceBlocks(
 										entity.getPositionEyes(1f),
-										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 17, entity.getLook(1f).y * 17,
-												entity.getLook(1f).z * 17), false, false, true).getBlockPos().getZ())), Blocks.AIR.getDefaultState(),
-						3);
-				entity.getEntityData().setDouble("AirShieldsNum", ((entity.getEntityData().getDouble("AirShieldsNum")) - 1));
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ()) - 1)));
+						for (IProperty<?> prop : _bs.getProperties().keySet()) {
+							if (prop.getName().equals("facing")) {
+								world.setBlockState(
+										new BlockPos((int) (entity.world.rayTraceBlocks(
+												entity.getPositionEyes(1f),
+												entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+														entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()), (int) (entity.world
+												.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()),
+												(int) ((entity.world.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ()) - 1)), _bs
+												.withProperty((PropertyDirection) prop, EnumFacing.SOUTH), 3);
+								break;
+							}
+						}
+					} catch (Exception e) {
+					}
+					entity.getEntityData().setDouble("AirShieldsNum", ((entity.getEntityData().getDouble("AirShieldsNum")) + 1));
+				} else if (((entity.getHorizontalFacing()) == EnumFacing.WEST)) {
+					world.setBlockState(
+							new BlockPos((int) ((entity.world.rayTraceBlocks(
+									entity.getPositionEyes(1f),
+									entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+											entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()) + 1), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())),
+							MCreatorAirStrikeShield.block.getDefaultState(), 3);
+					try {
+						IBlockState _bs = world.getBlockState(new BlockPos((int) ((entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()) + 1), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())));
+						for (IProperty<?> prop : _bs.getProperties().keySet()) {
+							if (prop.getName().equals("facing")) {
+								world.setBlockState(
+										new BlockPos((int) ((entity.world.rayTraceBlocks(
+												entity.getPositionEyes(1f),
+												entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+														entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()) + 1),
+												(int) (entity.world.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()),
+												(int) (entity.world.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())), _bs
+												.withProperty((PropertyDirection) prop, EnumFacing.WEST), 3);
+								break;
+							}
+						}
+					} catch (Exception e) {
+					}
+					entity.getEntityData().setDouble("AirShieldsNum", ((entity.getEntityData().getDouble("AirShieldsNum")) + 1));
+				} else if ((((((int) entity.rotationYaw) > 135) && (((int) entity.rotationYaw) < 225)) || ((entity.getHorizontalFacing()) == EnumFacing.NORTH))) {
+					world.setBlockState(
+							new BlockPos((int) (entity.world.rayTraceBlocks(
+									entity.getPositionEyes(1f),
+									entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+											entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) ((entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ()) + 1)),
+							MCreatorAirStrikeShield.block.getDefaultState(), 3);
+					try {
+						IBlockState _bs = world.getBlockState(new BlockPos((int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) ((entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ()) + 1)));
+						for (IProperty<?> prop : _bs.getProperties().keySet()) {
+							if (prop.getName().equals("facing")) {
+								world.setBlockState(
+										new BlockPos((int) (entity.world.rayTraceBlocks(
+												entity.getPositionEyes(1f),
+												entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+														entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()), (int) (entity.world
+												.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()),
+												(int) ((entity.world.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ()) + 1)), _bs
+												.withProperty((PropertyDirection) prop, EnumFacing.NORTH), 3);
+								break;
+							}
+						}
+					} catch (Exception e) {
+					}
+					entity.getEntityData().setDouble("AirShieldsNum", ((entity.getEntityData().getDouble("AirShieldsNum")) + 1));
+				} else if (((entity.getHorizontalFacing()) == EnumFacing.EAST)) {
+					world.setBlockState(
+							new BlockPos((int) ((entity.world.rayTraceBlocks(
+									entity.getPositionEyes(1f),
+									entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+											entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()) - 1), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+													entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())),
+							MCreatorAirStrikeShield.block.getDefaultState(), 3);
+					try {
+						IBlockState _bs = world.getBlockState(new BlockPos((int) ((entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()) - 1), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+												entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())));
+						for (IProperty<?> prop : _bs.getProperties().keySet()) {
+							if (prop.getName().equals("facing")) {
+								world.setBlockState(
+										new BlockPos((int) ((entity.world.rayTraceBlocks(
+												entity.getPositionEyes(1f),
+												entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+														entity.getLook(1f).z * 16), false, false, true).getBlockPos().getX()) - 1),
+												(int) (entity.world.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getY()),
+												(int) (entity.world.rayTraceBlocks(
+														entity.getPositionEyes(1f),
+														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
+																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())), _bs
+												.withProperty((PropertyDirection) prop, EnumFacing.EAST), 3);
+								break;
+							}
+						}
+					} catch (Exception e) {
+					}
+					entity.getEntityData().setDouble("AirShieldsNum", ((entity.getEntityData().getDouble("AirShieldsNum")) + 1));
+				}
+				entity.getEntityData().setDouble("AirStrikeShield2Cool", 1200);
 			}
 		}
 	}
