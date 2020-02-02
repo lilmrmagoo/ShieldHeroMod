@@ -38,9 +38,9 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 		if ((!(((world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRope.block.getDefaultState().getBlock()) || ((world
 				.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRopeFake.block.getDefaultState().getBlock())))) {
 			if ((((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -50,15 +50,15 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.NORTH) && ((world.getBlockState(new BlockPos((int) x, (int) y, (int) (z + 1)))).getBlock() == Blocks.AIR
-					.getDefaultState().getBlock()))) {
+			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.NORTH) && ((world.getBlockState(new BlockPos((int) x, (int) y,
+					(int) (z + 1)))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
 				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
 				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
 						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
 			} else if ((((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -68,15 +68,15 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.SOUTH) && ((world.getBlockState(new BlockPos((int) x, (int) y, (int) (z - 1)))).getBlock() == Blocks.AIR
-					.getDefaultState().getBlock()))) {
+			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.SOUTH) && ((world.getBlockState(new BlockPos((int) x, (int) y,
+					(int) (z - 1)))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
 				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
 				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
 						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
 			} else if ((((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -86,15 +86,15 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.WEST) && ((world.getBlockState(new BlockPos((int) (x + 1), (int) y, (int) z))).getBlock() == Blocks.AIR
-					.getDefaultState().getBlock()))) {
+			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.WEST) && ((world.getBlockState(new BlockPos((int) (x + 1),
+					(int) y, (int) z))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
 				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
 				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
 						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
 			} else if ((((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -104,8 +104,8 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.EAST) && ((world.getBlockState(new BlockPos((int) (x - 1), (int) y, (int) z))).getBlock() == Blocks.AIR
-					.getDefaultState().getBlock()))) {
+			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.EAST) && ((world.getBlockState(new BlockPos((int) (x - 1),
+					(int) y, (int) z))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
 				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
 				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
 						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
@@ -114,9 +114,9 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 		if ((((world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRope.block.getDefaultState().getBlock()) || ((world
 				.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRopeFake.block.getDefaultState().getBlock()))) {
 			if (((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -126,7 +126,7 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.NORTH)) {
+			}.getEnumFacing(new BlockPos((int) x, (int) (y + 1), (int) z))) == EnumFacing.NORTH)) {
 				try {
 					IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
 					for (IProperty<?> prop : _bs.getProperties().keySet()) {
@@ -139,9 +139,9 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 				} catch (Exception e) {
 				}
 			} else if (((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -151,7 +151,7 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.SOUTH)) {
+			}.getEnumFacing(new BlockPos((int) x, (int) (y + 1), (int) z))) == EnumFacing.SOUTH)) {
 				try {
 					IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
 					for (IProperty<?> prop : _bs.getProperties().keySet()) {
@@ -164,9 +164,9 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 				} catch (Exception e) {
 				}
 			} else if (((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -176,7 +176,7 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.WEST)) {
+			}.getEnumFacing(new BlockPos((int) x, (int) (y + 1), (int) z))) == EnumFacing.WEST)) {
 				try {
 					IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
 					for (IProperty<?> prop : _bs.getProperties().keySet()) {
@@ -189,9 +189,9 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 				} catch (Exception e) {
 				}
 			} else if (((new Object() {
-				public EnumFacing getEnumFacing() {
+				public EnumFacing getEnumFacing(BlockPos pos) {
 					try {
-						IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z));
+						IBlockState _bs = world.getBlockState(pos);
 						for (IProperty<?> prop : _bs.getProperties().keySet()) {
 							if (prop.getName().equals("facing"))
 								return _bs.getValue((PropertyDirection) prop);
@@ -201,7 +201,7 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 						return EnumFacing.NORTH;
 					}
 				}
-			}.getEnumFacing()) == EnumFacing.EAST)) {
+			}.getEnumFacing(new BlockPos((int) x, (int) (y + 1), (int) z))) == EnumFacing.EAST)) {
 				try {
 					IBlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
 					for (IProperty<?> prop : _bs.getProperties().keySet()) {
