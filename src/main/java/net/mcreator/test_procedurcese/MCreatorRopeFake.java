@@ -130,8 +130,6 @@ public class MCreatorRopeFake extends Elementstest_procedurcese.ModElement {
 			return 0;
 		}
 
-		@Override public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) { return true; }
-
 		@Override
 		public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 			super.onBlockAdded(world, pos, state);
@@ -158,6 +156,11 @@ public class MCreatorRopeFake extends Elementstest_procedurcese.ModElement {
 				MCreatorRopeUpdateTick.executeProcedure($_dependencies);
 			}
 			world.scheduleUpdate(new BlockPos(x, y, z), this, this.tickRate(world));
+		}
+
+		@Override
+		public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
+			return true;
 		}
 	}
 }

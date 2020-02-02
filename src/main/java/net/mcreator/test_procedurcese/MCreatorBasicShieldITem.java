@@ -77,7 +77,7 @@ public class MCreatorBasicShieldITem extends Elementstest_procedurcese.ModElemen
 
 		@Override
 		public int getMaxItemUseDuration(ItemStack itemstack) {
-			return 7200;
+			return 72000;
 		}
 
 		public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
@@ -96,7 +96,7 @@ public class MCreatorBasicShieldITem extends Elementstest_procedurcese.ModElemen
 			Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(slot);
 			if (slot == EntityEquipmentSlot.MAINHAND) {
 				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Item modifier",
-						(double) 2, 0));
+						(double) -2, 0));
 				multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Item modifier", -2.4, 0));
 			}
 			return multimap;
