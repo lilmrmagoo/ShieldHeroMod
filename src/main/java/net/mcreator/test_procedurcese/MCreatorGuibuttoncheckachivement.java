@@ -5,8 +5,6 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraft.world.WorldServer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
-import net.minecraft.init.Items;
-import net.minecraft.init.Blocks;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.Entity;
@@ -28,11 +26,13 @@ public class MCreatorGuibuttoncheckachivement extends Elementstest_procedurcese.
 				.getProgress(
 						((WorldServer) entity.world).getAdvancementManager().getAdvancement(new ResourceLocation("test_procedurcese:leafshield")))
 				.isDone() : false)) {
-			if (((entity instanceof EntityPlayer) ? ((EntityPlayer) entity).inventory.hasItemStack(new ItemStack(Items.SHIELD, (int) (1))) : false)) {
+			if (((entity instanceof EntityPlayer) ? ((EntityPlayer) entity).inventory.hasItemStack(new ItemStack(MCreatorBasicShieldITem.block,
+					(int) (1))) : false)) {
 				if (entity instanceof EntityPlayer)
-					((EntityPlayer) entity).inventory.clearMatchingItems(new ItemStack(Items.SHIELD, (int) (1)).getItem(), -1, (int) 1, null);
+					((EntityPlayer) entity).inventory.clearMatchingItems(new ItemStack(MCreatorBasicShieldITem.block, (int) (1)).getItem(), -1,
+							(int) 1, null);
 				if (entity instanceof EntityPlayer)
-					ItemHandlerHelper.giveItemToPlayer(((EntityPlayer) entity), new ItemStack(Blocks.LEAVES, (int) (1), 0));
+					ItemHandlerHelper.giveItemToPlayer(((EntityPlayer) entity), new ItemStack(MCreatorRopeShieldItem.block, (int) (1)));
 			}
 		}
 	}

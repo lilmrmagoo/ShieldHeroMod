@@ -1,0 +1,42 @@
+{
+  "_fv": 5,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 352,
+    "height": 332,
+    "renderBgLayer": true,
+    "containerBlock": "<none>",
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "R",
+          "onClick": {
+            "name": "Guibuttoncheckachivement"
+          },
+          "width": 20,
+          "height": 40,
+          "name": "R",
+          "x": 485,
+          "y": 235
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "s",
+          "onClick": {
+            "name": "NormalShieldSwitch"
+          },
+          "width": 20,
+          "height": 40,
+          "name": "s",
+          "x": 409,
+          "y": 234
+        }
+      }
+    ],
+    "inventories": []
+  }
+}

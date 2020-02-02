@@ -1,0 +1,17 @@
+{
+  "group": "test_procedurcese",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "test_procedurcese:basicshielditem"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "rope"
+    }
+  ],
+  "result": {
+    "item": "test_procedurcese:ropeshielditem",
+    "count": 1
+  }
+}

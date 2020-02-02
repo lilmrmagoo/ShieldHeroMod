@@ -119,11 +119,15 @@ public class Elementstest_procedurcese implements IFuelHandler, IWorldGenerator 
 	public static class GuiHandler implements IGuiHandler {
 		@Override
 		public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+			if (id == MCreatorShieldMenu.GUIID)
+				return new MCreatorShieldMenu.GuiContainerMod(world, x, y, z, player);
 			return null;
 		}
 
 		@Override
 		public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+			if (id == MCreatorShieldMenu.GUIID)
+				return new MCreatorShieldMenu.GuiWindow(world, x, y, z, player);
 			return null;
 		}
 	}

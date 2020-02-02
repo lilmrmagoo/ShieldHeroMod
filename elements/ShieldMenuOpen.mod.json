@@ -1,0 +1,11 @@
+{
+  "_fv": 5,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "M",
+    "keyBindingName": "Shield Menu Open",
+    "onKeyPressed": {
+      "name": "ShieldMenuOpenPressed"
+    }
+  }
+}
