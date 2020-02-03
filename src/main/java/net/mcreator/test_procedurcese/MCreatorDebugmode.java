@@ -32,8 +32,9 @@ public class MCreatorDebugmode extends Elementstest_procedurcese.ModElement {
 				((EntityPlayer) entity).sendStatusMessage(
 						new TextComponentString((("currentability: ") + "" + ((entity.getEntityData().getDouble("currentability"))) + ""
 								+ ("AirShieldsNum: ") + "" + ((entity.getEntityData().getDouble("AirShieldsNum"))) + "" + ("unlockedAirShields: ")
-								+ "" + ((entity.getEntityData().getDouble("unlockedAirShields"))) + "" + ("AirStrikeShieldCool") + "" + ((entity
-								.getEntityData().getDouble("AirStrikeShieldCool"))))), (true));
+								+ "" + ((entity.getEntityData().getDouble("unlockedAirShields"))) + "" + ("AirStrikeShieldCool") + ""
+								+ ((entity.getEntityData().getDouble("AirStrikeShieldCool"))) + "" + ((entity.getEntityData()
+								.getBoolean("Ropeextended"))))), (true));
 			}
 		}
 	}

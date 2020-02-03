@@ -76,13 +76,13 @@ public class MCreatorRope extends Elementstest_procedurcese.ModElement {
 				case DOWN :
 				case SOUTH :
 				default :
-					return new AxisAlignedBB(0.625D, 0D, 0.25D, 0.625D, 1D, 0D);
+					return new AxisAlignedBB(1D, 0D, 0.25D, 0D, 1D, 0D);
 				case NORTH :
-					return new AxisAlignedBB(0.375D, 0D, 0.75D, 0.375D, 1D, 1D);
+					return new AxisAlignedBB(0D, 0D, 0.75D, 1D, 1D, 1D);
 				case WEST :
-					return new AxisAlignedBB(0.75D, 0D, 0.625D, 1D, 1D, 0.625D);
+					return new AxisAlignedBB(0.75D, 0D, 1D, 1D, 1D, 0D);
 				case EAST :
-					return new AxisAlignedBB(0.25D, 0D, 0.375D, 0D, 1D, 0.375D);
+					return new AxisAlignedBB(0.25D, 0D, 0D, 0D, 1D, 1D);
 			}
 		}
 

@@ -32,9 +32,10 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 		Entity entity = (Entity) dependencies.get("entity");
 		World world = (World) dependencies.get("world");
 		double laddersplaced = 0;
+		double countup = 0;
 		if ((entity.isSneaking())) {
-			if ((((entity instanceof EntityLivingBase) ? ((EntityLivingBase) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == new ItemStack(
-					MCreatorRopeShieldItem.block, (int) (1)).getItem())) {
+			if (((((entity instanceof EntityLivingBase) ? ((EntityLivingBase) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == new ItemStack(
+					MCreatorRopeShieldItem.block, (int) (1)).getItem()) && ((entity.getEntityData().getBoolean("Ropeextended")) == (false)))) {
 				if ((((((int) entity.rotationYaw) > 135) && (((int) entity.rotationYaw) < 225)) || ((entity.getHorizontalFacing()) == EnumFacing.NORTH))) {
 					world.setBlockState(
 							new BlockPos((int) (entity.world.rayTraceBlocks(
@@ -82,6 +83,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 						}
 					} catch (Exception e) {
 					}
+					entity.getEntityData().setBoolean("Ropeextended", (true));
 				}
 				if ((((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
 						entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100, entity.getLook(1f).z * 100),
@@ -137,6 +139,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 						}
 					} catch (Exception e) {
 					}
+					entity.getEntityData().setBoolean("Ropeextended", (true));
 				}
 				if (((entity.getHorizontalFacing()) == EnumFacing.WEST)) {
 					world.setBlockState(
@@ -187,6 +190,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 						}
 					} catch (Exception e) {
 					}
+					entity.getEntityData().setBoolean("Ropeextended", (true));
 				}
 				if (((entity.getHorizontalFacing()) == EnumFacing.EAST)) {
 					world.setBlockState(
@@ -236,6 +240,86 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 							}
 						}
 					} catch (Exception e) {
+					}
+					entity.getEntityData().setBoolean("Ropeextended", (true));
+				}
+			} else if (((((entity instanceof EntityLivingBase) ? ((EntityLivingBase) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == new ItemStack(
+					MCreatorRopeShieldItem.block, (int) (1)).getItem()) && ((entity.getEntityData().getBoolean("Ropeextended")) == (true)))) {
+				if ((((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
+						entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100, entity.getLook(1f).z * 100),
+						false, false, true).getBlockPos().getX()), (int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
+						entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100, entity.getLook(1f).z * 100),
+						false, false, true).getBlockPos().getY()), (int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
+						entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100, entity.getLook(1f).z * 100),
+						false, false, true).getBlockPos().getZ())))).getBlock() == MCreatorRope.block.getDefaultState().getBlock()) || ((world
+						.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getX()), (int) (entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getY()), (int) (entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())))).getBlock() == MCreatorRopeFake.block
+						.getDefaultState().getBlock()))) {
+					world.setBlockState(
+							new BlockPos((int) (entity.world.rayTraceBlocks(
+									entity.getPositionEyes(1f),
+									entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+											entity.getLook(1f).z * 100), false, false, true).getBlockPos().getX()), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+													entity.getLook(1f).z * 100), false, false, true).getBlockPos().getY()), (int) (entity.world
+									.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+													entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())), Blocks.AIR
+									.getDefaultState(), 3);
+					for (int index0 = 0; index0 < (int) (32); index0++) {
+						if (((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getX()), (int) ((entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getY()) + (countup)), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+												entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())))).getBlock() == MCreatorRopeFake.block
+								.getDefaultState().getBlock())) {
+							countup = (double) ((countup) + 1);
+						} else if (((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getX()), (int) ((entity.world.rayTraceBlocks(
+								entity.getPositionEyes(1f),
+								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getY()) + (countup)), (int) (entity.world
+								.rayTraceBlocks(
+										entity.getPositionEyes(1f),
+										entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+												entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())))).getBlock() == MCreatorRope.block
+								.getDefaultState().getBlock())) {
+							world.setBlockState(
+									new BlockPos((int) (entity.world.rayTraceBlocks(
+											entity.getPositionEyes(1f),
+											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+													entity.getLook(1f).z * 100), false, false, true).getBlockPos().getX()), (int) ((entity.world
+											.rayTraceBlocks(
+													entity.getPositionEyes(1f),
+													entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+															entity.getLook(1f).z * 100), false, false, true).getBlockPos().getY()) + (countup)),
+											(int) (entity.world.rayTraceBlocks(
+													entity.getPositionEyes(1f),
+													entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
+															entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())), Blocks.AIR
+											.getDefaultState(), 3);
+							countup = (double) 0;
+							entity.getEntityData().setBoolean("Ropeextended", (false));
+						}
 					}
 				}
 			}

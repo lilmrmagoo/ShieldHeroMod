@@ -7,25 +7,15 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 
 import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.ActionResult;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.EnumAction;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.block.state.IBlockState;
-
-import javax.annotation.Nullable;
 
 import java.util.List;
 
@@ -58,16 +48,6 @@ public class MCreatorRopeShieldItem extends Elementstest_procedurcese.ModElement
 			setUnlocalizedName("ropeshielditem");
 			setRegistryName("ropeshielditem");
 			setCreativeTab(CreativeTabs.COMBAT);
-			this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
-				@SideOnly(Side.CLIENT)
-				public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-					return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
-				}
-			});
-		}
-
-		public EnumAction getItemUseAction(ItemStack stack) {
-			return EnumAction.BLOCK;
 		}
 
 		@Override
@@ -77,13 +57,7 @@ public class MCreatorRopeShieldItem extends Elementstest_procedurcese.ModElement
 
 		@Override
 		public int getMaxItemUseDuration(ItemStack itemstack) {
-			return 72000;
-		}
-
-		public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-			ItemStack itemstack = playerIn.getHeldItem(handIn);
-			playerIn.setActiveHand(handIn);
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+			return 0;
 		}
 
 		@Override

@@ -53,7 +53,7 @@ public class MCreatorBasicShieldITem extends Elementstest_procedurcese.ModElemen
 
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			setMaxDamage(0);
+			setMaxDamage(1);
 			maxStackSize = 1;
 			setUnlocalizedName("basicshielditem");
 			setRegistryName("basicshielditem");
