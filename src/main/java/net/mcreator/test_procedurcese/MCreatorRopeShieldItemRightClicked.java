@@ -2,12 +2,14 @@ package net.mcreator.test_procedurcese;
 
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.World;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.item.ItemStack;
 import net.minecraft.init.Blocks;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.state.IBlockState;
@@ -36,7 +38,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 		if ((entity.isSneaking())) {
 			if (((((entity instanceof EntityLivingBase) ? ((EntityLivingBase) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == new ItemStack(
 					MCreatorRopeShieldItem.block, (int) (1)).getItem()) && ((entity.getEntityData().getBoolean("Ropeextended")) == (false)))) {
-				if ((((((int) entity.rotationYaw) > 135) && (((int) entity.rotationYaw) < 225)) || ((entity.getHorizontalFacing()) == EnumFacing.NORTH))) {
+				if (((entity.getHorizontalFacing()) == EnumFacing.NORTH)) {
 					world.setBlockState(
 							new BlockPos((int) (entity.world.rayTraceBlocks(
 									entity.getPositionEyes(1f),
@@ -84,8 +86,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 					} catch (Exception e) {
 					}
 					entity.getEntityData().setBoolean("Ropeextended", (true));
-				}
-				if ((((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
+				} else if ((((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
 						entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100, entity.getLook(1f).z * 100),
 						false, false, true).getBlockPos().getX()), (int) (entity.world.rayTraceBlocks(entity.getPositionEyes(1f),
 						entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100, entity.getLook(1f).z * 100),
@@ -140,8 +141,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 					} catch (Exception e) {
 					}
 					entity.getEntityData().setBoolean("Ropeextended", (true));
-				}
-				if (((entity.getHorizontalFacing()) == EnumFacing.WEST)) {
+				} else if (((entity.getHorizontalFacing()) == EnumFacing.WEST)) {
 					world.setBlockState(
 							new BlockPos((int) ((entity.world.rayTraceBlocks(
 									entity.getPositionEyes(1f),
@@ -191,8 +191,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 					} catch (Exception e) {
 					}
 					entity.getEntityData().setBoolean("Ropeextended", (true));
-				}
-				if (((entity.getHorizontalFacing()) == EnumFacing.EAST)) {
+				} else if (((entity.getHorizontalFacing()) == EnumFacing.EAST)) {
 					world.setBlockState(
 							new BlockPos((int) ((entity.world.rayTraceBlocks(
 									entity.getPositionEyes(1f),
@@ -263,21 +262,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
 										entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())))).getBlock() == MCreatorRopeFake.block
 						.getDefaultState().getBlock()))) {
-					world.setBlockState(
-							new BlockPos((int) (entity.world.rayTraceBlocks(
-									entity.getPositionEyes(1f),
-									entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
-											entity.getLook(1f).z * 100), false, false, true).getBlockPos().getX()), (int) (entity.world
-									.rayTraceBlocks(
-											entity.getPositionEyes(1f),
-											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
-													entity.getLook(1f).z * 100), false, false, true).getBlockPos().getY()), (int) (entity.world
-									.rayTraceBlocks(
-											entity.getPositionEyes(1f),
-											entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
-													entity.getLook(1f).z * 100), false, false, true).getBlockPos().getZ())), Blocks.AIR
-									.getDefaultState(), 3);
-					for (int index0 = 0; index0 < (int) (32); index0++) {
+					while (((entity.getEntityData().getBoolean("Ropeextended")) == (true))) {
 						if (((world.getBlockState(new BlockPos((int) (entity.world.rayTraceBlocks(
 								entity.getPositionEyes(1f),
 								entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 100, entity.getLook(1f).y * 100,
@@ -319,7 +304,14 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 											.getDefaultState(), 3);
 							countup = (double) 0;
 							entity.getEntityData().setBoolean("Ropeextended", (false));
+						} else if (((entity.getEntityData().getBoolean("Ropeextended")) == (true))) {
+							break;
 						}
+					}
+				} else if (((entity.getEntityData().getBoolean("Ropeextended")) == (true))) {
+					if (entity instanceof EntityPlayer && !world.isRemote) {
+						((EntityPlayer) entity).sendStatusMessage(new TextComponentString(
+								"you must retract the rope first, before deploying it agian."), (false));
 					}
 				}
 			}
@@ -616,7 +608,7 @@ public class MCreatorRopeShieldItemRightClicked extends Elementstest_procedurces
 														entity.getPositionEyes(1f),
 														entity.getPositionEyes(1f).addVector(entity.getLook(1f).x * 16, entity.getLook(1f).y * 16,
 																entity.getLook(1f).z * 16), false, false, true).getBlockPos().getZ())), _bs
-												.withProperty((PropertyDirection) prop, EnumFacing.WEST), 3);
+												.withProperty((PropertyDirection) prop, EnumFacing.DOWN), 3);
 								break;
 							}
 						}

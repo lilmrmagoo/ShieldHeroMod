@@ -28,6 +28,7 @@ public class MCreatorDebugCommandExecuted extends Elementstest_procedurcese.ModE
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
 		World world = (World) dependencies.get("world");
 		entity.getEntityData().setDouble("AirShieldsNum", 0);
+		entity.getEntityData().setBoolean("Ropeextended", (false));
 		if ((((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");

@@ -3,7 +3,6 @@ package net.mcreator.test_procedurcese;
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.init.Blocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.IProperty;
@@ -35,80 +34,14 @@ public class MCreatorRopeUpdateTick extends Elementstest_procedurcese.ModElement
 		int y = (int) dependencies.get("y");
 		int z = (int) dependencies.get("z");
 		World world = (World) dependencies.get("world");
-		if ((!(((world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRope.block.getDefaultState().getBlock()) || ((world
-				.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRopeFake.block.getDefaultState().getBlock())))) {
-			if ((((new Object() {
-				public EnumFacing getEnumFacing(BlockPos pos) {
-					try {
-						IBlockState _bs = world.getBlockState(pos);
-						for (IProperty<?> prop : _bs.getProperties().keySet()) {
-							if (prop.getName().equals("facing"))
-								return _bs.getValue((PropertyDirection) prop);
-						}
-						return EnumFacing.NORTH;
-					} catch (Exception e) {
-						return EnumFacing.NORTH;
-					}
-				}
-			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.NORTH) && ((world.getBlockState(new BlockPos((int) x, (int) y,
-					(int) (z + 1)))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
+		double counter = 0;
+		while ((!((world.getBlockState(new BlockPos((int) x, (int) (y + (counter)), (int) z))).getBlock() == MCreatorRope.block.getDefaultState()
+				.getBlock()))) {
+			counter = (double) (1 + (counter));
+			if (((counter) == 33)) {
+				counter = (double) 0;
 				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
-				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
-						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
-			} else if ((((new Object() {
-				public EnumFacing getEnumFacing(BlockPos pos) {
-					try {
-						IBlockState _bs = world.getBlockState(pos);
-						for (IProperty<?> prop : _bs.getProperties().keySet()) {
-							if (prop.getName().equals("facing"))
-								return _bs.getValue((PropertyDirection) prop);
-						}
-						return EnumFacing.NORTH;
-					} catch (Exception e) {
-						return EnumFacing.NORTH;
-					}
-				}
-			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.SOUTH) && ((world.getBlockState(new BlockPos((int) x, (int) y,
-					(int) (z - 1)))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
-				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
-				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
-						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
-			} else if ((((new Object() {
-				public EnumFacing getEnumFacing(BlockPos pos) {
-					try {
-						IBlockState _bs = world.getBlockState(pos);
-						for (IProperty<?> prop : _bs.getProperties().keySet()) {
-							if (prop.getName().equals("facing"))
-								return _bs.getValue((PropertyDirection) prop);
-						}
-						return EnumFacing.NORTH;
-					} catch (Exception e) {
-						return EnumFacing.NORTH;
-					}
-				}
-			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.WEST) && ((world.getBlockState(new BlockPos((int) (x + 1),
-					(int) y, (int) z))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
-				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
-				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
-						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
-			} else if ((((new Object() {
-				public EnumFacing getEnumFacing(BlockPos pos) {
-					try {
-						IBlockState _bs = world.getBlockState(pos);
-						for (IProperty<?> prop : _bs.getProperties().keySet()) {
-							if (prop.getName().equals("facing"))
-								return _bs.getValue((PropertyDirection) prop);
-						}
-						return EnumFacing.NORTH;
-					} catch (Exception e) {
-						return EnumFacing.NORTH;
-					}
-				}
-			}.getEnumFacing(new BlockPos((int) x, (int) y, (int) z))) == EnumFacing.EAST) && ((world.getBlockState(new BlockPos((int) (x - 1),
-					(int) y, (int) z))).getBlock() == Blocks.AIR.getDefaultState().getBlock()))) {
-				world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
-				world.notifyNeighborsOfStateChange(new BlockPos((int) x, (int) (y - 1), (int) z),
-						world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlock(), true);
+				break;
 			}
 		}
 		if ((((world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == MCreatorRope.block.getDefaultState().getBlock()) || ((world
